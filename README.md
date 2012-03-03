@@ -8,4 +8,4 @@ Python script to search for videos on youtube
 2. add you-search.py to your PATH
 
 ##Usage
-1. you-search.py <search terms>
+1. you-search.py [search terms]
