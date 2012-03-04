@@ -7,7 +7,7 @@
 #
 #* Creation Date : 16-02-2012
 #
-#* Last Modified : Sat 03 Mar 2012 11:03:54 PM EET
+#* Last Modified : Sun 04 Mar 2012 04:51:27 PM EET
 #
 #* Created By : Greg Liras <gregliras@gmail.com>
 #
@@ -15,12 +15,7 @@
 
 import mechanize
 import cookielib
-from re import search
 from sys import argv
-
-
-
-
 
 def main():
     if len(argv) == 1:
@@ -37,10 +32,11 @@ def main():
 
     br.select_form( nr = 1 ) 
     br["search_query"] = " ".join(argv[1:])
-    page = br.submit()
-    data = page.read()
-    result = search('watch\?[=A-Za-z0-9]*?"', data)
-    print "http://www.youtube.com/"+result.group(0)[:len(result.group(0))-1]
+    br.submit()
+    links = br.links( url_regex="/watch\?v=" )
+    for (i,link) in enumerate(links):
+        print "http://www.youtube.com"+link.url
+        break
 
 if __name__=="__main__":
     main()
