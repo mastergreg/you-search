@@ -1,16 +1,10 @@
 #!/usr/bin/python2
 #/* -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-#
 #* File Name : you-search.py
-#
-#* Purpose :
-#
+#* Purpose : search youtube page for video
 #* Creation Date : 16-02-2012
-#
-#* Last Modified : Sun 04 Mar 2012 04:51:27 PM EET
-#
+#* Last Modified : Sun 07 Oct 2012 06:03:21 PM EEST
 #* Created By : Greg Liras <gregliras@gmail.com>
-#
 #_._._._._._._._._._._._._._._._._._._._._.*/
 
 import mechanize
@@ -19,7 +13,8 @@ from sys import argv
 
 def main():
     if len(argv) == 1:
-        print "Usage: %s search terms"%argv[0]
+        print "Usage: %s <search terms>"%argv[0]
+        exit(1)
     URL="http://youtube.com"
 
     br = mechanize.Browser()
